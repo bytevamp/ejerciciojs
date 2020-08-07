@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">  
+  <head>    
+    <title>Notas en Web</title>    
+    <meta charset="UTF-8">
+    <meta name="title" content="Notas en Web">
+    <meta name="description" content="Notas en Web">    
+    <link href="css/styles.css" rel="stylesheet" type="text/css"/>    
+  </head>  
+  <body>    
+    <div id=cuerpo>
+      <div id="principal"> 
+        <input type="text" name="texto" id="texto" onkeyup="onKeyUp(event)" placeholder="Escribe una nota..." />
+          <input type="button" onclick="anade();" value="|>">
+      </div>
+      <hr />
+      
+      <div id="resultado">
+      </div>
+    </div>
+    
+  </body>  
+  <script type="text/javascript">
+
+   function anade(){
+      var paragraph = document.getElementById("resultado");
+      var textoinicial = document.getElementById("texto").value;
+      paragraph.innerHTML = "<p>" + textoinicial + "</p>" + paragraph.innerHTML;
+      document.getElementById("texto").value = '';
+      document.getElementById("texto").focus();
+    }
+
+    function onKeyUp(event) {
+      var keycode = event.keyCode;
+      if(keycode == '13'){
+        anade(); 
+      }
+    }
+  </script>
+</html>
